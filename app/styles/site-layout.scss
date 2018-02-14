@@ -2,9 +2,9 @@
   height: 100%;
   width: 100%;
   $top-navbar-height: 45px;
+  $info-navbar-height: 135px;
   $site-left-width: 10%;
   $site-right-width: 10%;
-  $info-navbar-height: 135px;
   $total-navbar-height: $top-navbar-height + $info-navbar-height;
 
   #main-canvas {
@@ -16,4 +16,5 @@
     height: -moz-calc(100% - #{$total-navbar-height});
     height: calc(100% - #{$total-navbar-height});
   }
+  @import './nav-bars/info-navbar';
 }
