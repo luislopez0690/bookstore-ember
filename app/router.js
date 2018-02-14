@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('books');
   this.route('transactions');
   this.route('join_table_users_books');
+
 });
 
 export default Router;

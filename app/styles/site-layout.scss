@@ -1,0 +1,17 @@
+#site-layout {
+  height: 100%;
+  width: 100%;
+  $top-navbar-height: 45px;
+  $site-left-width: 10%;
+  $site-right-width: 10%;
+
+  #main-canvas {
+    width: auto;
+    padding-top: calc(#{$top-navbar-height} + 10px);
+    margin-left: $site-left-width;
+    margin-right: $site-right-width;
+    height: -webkit-calc(100% - #{$top-navbar-height});
+    height: -moz-calc(100% - #{$top-navbar-height});
+    height: calc(100% - #{$top-navbar-height});
+  }
+}
