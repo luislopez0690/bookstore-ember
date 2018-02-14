@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  elementId: 'site-layout'
+  elementId: 'info-navbar',
+  classNames: ['d-flex justify-content-between']
 });
