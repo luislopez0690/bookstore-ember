@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   $top-navbar-height: 45px;
-  $info-navbar-height: 180px;
+  $info-navbar-height: 140px;
   $site-left-width: 10%;
   $site-right-width: 10%;
   $total-navbar-height: $top-navbar-height + $info-navbar-height;
@@ -15,11 +15,6 @@
   #main-canvas {
     width: auto;
     padding-top: 2%;
-    //margin-left: $site-left-width;
-    //margin-right: $site-right-width;
-    height: -webkit-calc(100% - #{$total-navbar-height});
-    height: -moz-calc(100% - #{$total-navbar-height});
-    height: calc(100% - #{$total-navbar-height});
   }
   @import './nav-bars/info-navbar';
   @import './nav-bars/top-navbar';

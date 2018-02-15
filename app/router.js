@@ -8,7 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('users');
-  this.route('books');
+  this.route('books', { path: '/' });
   this.route('transactions');
   this.route('join_table_users_books');
 

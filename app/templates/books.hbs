@@ -1,1 +1,5 @@
-{{outlet}}
+<ul>
+  {{#each model as |book|}}
+    {{all-books book=book}}
+  {{/each}}
+</ul>

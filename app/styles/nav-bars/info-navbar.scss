@@ -1,6 +1,12 @@
 #info-navbar {
   height: $info-navbar-height;
   width: 100%;
-  background-color: blue;
+  background-color: rgba(255,255,255,0.5);
   margin-top: 1rem;
+  border-bottom: 2px solid black;
+  text-align: center;
+  //shadow
+  -webkit-box-shadow: 7px -1px 16px 0 rgba(0,0,0, 0.75);
+  -moz-box-shadow: 7px -1px 16px 0 rgba(0,0,0, 0.75);
+  box-shadow: 7px -1px 16px 0 rgba(0,0,0, 0.75);
 }
