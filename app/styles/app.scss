@@ -1,1 +1,9 @@
 @import 'site-layout';
+@import 'login'; //desired googlefont for my website
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900'); //typographic styles
+$playfair-sans: 'Playfair Display', serif;
+
+nav {
+  font-family: $playfair-sans;
+  font-weight: bold;
+}
