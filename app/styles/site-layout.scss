@@ -15,6 +15,11 @@
   #main-canvas {
     width: auto;
     padding-top: 2%;
+
+    .card {
+      width: 18rem;
+      margin-bottom: 1rem;
+    }
   }
   @import './nav-bars/info-navbar';
   @import './nav-bars/top-navbar';
