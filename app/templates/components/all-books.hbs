@@ -9,8 +9,7 @@
 </div>
 
 {{#if isShowingModal}}
-  {{#modal-dialog onClose="toggleModal"
-                  targetAttachment="center"
+  {{#modal-dialog targetAttachment="center"
                   translucentOverlay=true}}
     Oh hai there!
     <button onclick={{action "toggleModal"}}>Close</button>

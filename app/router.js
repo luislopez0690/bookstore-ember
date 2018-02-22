@@ -7,10 +7,11 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('users');
+  this.route('users', function() {
+    this.route('current', { path: 'current/:user_id' });
+  });
   this.route('books', { path: '/' });
   this.route('transactions');
-  this.route('join_table_users_books');
 
 });
 
