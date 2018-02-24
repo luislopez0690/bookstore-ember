@@ -9,8 +9,9 @@ export default Route.extend({
     });
   },
   actions: {
-    addToUserLibrary(currentUser) {
-      currentUser.save()
+    addToUserLibrary(transaction) {
+
+      transaction.save()
 
     }
   }

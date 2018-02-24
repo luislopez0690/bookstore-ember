@@ -6,13 +6,16 @@ export default Component.extend({
 
   actions: {
     setSelection: function(selectedBook) {
-      let record = this.get('store').peekRecord('book', selectedBook)
-      this.get('model.user.books').addObject(record)
-      console.log(this.get('model.user.books'))
+      let book = this.get('store').peekRecord('book', selectedBook)
+      let transaction = this.get('store').createRecord('transaction', {
+        user: this.get('model.user'),
+      })
+      transaction.get('books').addObject(book)
+      this.set('transaction', transaction);
     },
-    addToUserLibrary: function(selected) {
-
-      this.sendAction('addToUserLibrary', selected)
+    addToUserLibrary: function() {
+      let currentTransaction = this.get('transaction')
+      this.sendAction('addToUserLibrary', currentTransaction)
     }
   }
 });
