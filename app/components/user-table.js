@@ -1,8 +1,9 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+
 
 export default Component.extend({
-
-  store: Ember.inject.service('store'),
+  store: service(),
 
   actions: {
     setSelection: function(selectedBook) {
@@ -17,6 +18,7 @@ export default Component.extend({
       let currentTransaction = this.get('transaction')
       this.sendAction('addToUserLibrary', currentTransaction)
     },
+    //currently under development
     deleteFromUserLibrary: function(book) {
       let currentTransaction = this.get('store').peekRecord('transaction', {
         user: this.get('model.user'),
@@ -28,5 +30,6 @@ export default Component.extend({
       }))
       this.sendAction('deleteFromUserLibrary', currentTransaction.deleteRecord());
     }
+    ///
   }
 });

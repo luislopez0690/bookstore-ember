@@ -12,7 +12,6 @@ Router.map(function() {
   });
   this.route('books', { path: '/' });
   this.route('transactions');
-
 });
 
 export default Router;

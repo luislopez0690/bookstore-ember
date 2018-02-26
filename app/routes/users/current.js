@@ -10,22 +10,16 @@ export default Route.extend({
   },
   actions: {
     addToUserLibrary(transaction) {
-      // after succesfully saving the information to the backend
-      // i should promise my route the information hes going to get
-      // it should be something like this
-      // transaction.save().then(() => {
-      // render the relationship with user_id and book_id
-      //
-      //}})
-      console.log(transaction.user)//only shows the relationship
-      console.log(transaction.book)
-      transaction.save(). then(() => {
-        this.transitionTo('users.current');
+      transaction.save().then((data) => {
+        let book = this.get('store').peekRecord('book', data.get('book.id'))
+        let user = this.get('store').peekRecord('user', data.get('user.id'))
+        user.get('books').pushObject(book);
       })
     },
-    deleteFromUserLibrary(transaction){
-
+    //currently under development
+    deleteFromUserLibrary(transaction) {
       transaction.save();
     }
+    ////
   }
 });
