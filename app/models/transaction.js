@@ -2,7 +2,6 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   user: DS.belongsTo('user', { async: true }),
-  books: DS.hasMany('books', { async: true }),
-  orderNumber: DS.attr(),
+  book: DS.belongsTo('book', { async: true }),
   quantity: DS.attr()
 });

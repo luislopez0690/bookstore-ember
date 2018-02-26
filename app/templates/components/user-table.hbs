@@ -23,7 +23,7 @@
           <td>
             {{#each model.user.books as |book|}}
             <ul>
-                <li>Edit</li>
+              <button type="button" class="btn btn-danger"{{action 'deleteFromUserLibrary' book}} > Delete</button>
             </ul>
               {{/each}}
             </td>
