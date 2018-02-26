@@ -7,18 +7,21 @@
   $site-right-width: 10%;
   $total-navbar-height: $top-navbar-height + $info-navbar-height;
   //background color effect
-  background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
 
   #main-canvas {
     width: auto;
-    padding-top: 2%;
 
     .card {
-      width: 18rem;
+      width: 20rem;
       margin-bottom: 1rem;
+      border-color: black;
+    }
+
+    .card-body {
+      height: 16rem;
     }
   }
   @import './nav-bars/info-navbar';
