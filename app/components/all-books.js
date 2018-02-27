@@ -1,4 +1,11 @@
 import Component from '@ember/component';
-///Under development
-export default Component.extend({});
+
+export default Component.extend({
+  actions: {
+    pickCurrentBook: function(book) {
+      console.log('book', book);
+      this.sendAction('pickCurrentBook', book);
+    }
+  }
+});
 ///

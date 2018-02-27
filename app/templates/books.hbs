@@ -1,5 +1,1 @@
-<div class= "card-deck">
-  {{#each model as |book|}}
-    {{all-books book=book}}
-  {{/each}}
-</div>
+{{books-deck model=model user=user addToUserLibrary="addToUserLibrary" deleteFromUserLibrary="deleteFromUserLibrary"}}

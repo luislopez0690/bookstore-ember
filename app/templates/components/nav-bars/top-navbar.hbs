@@ -9,14 +9,14 @@
         {{#link-to 'books' class="nav-link"}}Home{{/link-to}}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Past Orders</a>
+        {{#link-to 'users.current' user.id class="nav-link"}}Orders{{/link-to}}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Support</a>
+        {{#link-to 'support' class="nav-link"}}Contact Us{{/link-to}}
       </li>
     </ul>
     <span class="navbar-text">
-      Insert User
+      {{user.name}}
     </span>
   </div>
 </div>
