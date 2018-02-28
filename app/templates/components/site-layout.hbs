@@ -1,6 +1,9 @@
-
-{{nav-bars/top-navbar user=user}}
+{{#if  model.loginHref}}
+{{outlet}}
+{{else}}
+{{nav-bars/top-navbar user=model.user}}
 {{nav-bars/info-navbar}}
 <div id="main-canvas" class="container">
   {{yield}}
 </div>
+{{/if}}

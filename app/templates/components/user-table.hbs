@@ -3,29 +3,19 @@
   <thead>
     <tr>
       <th scope="col">Name</th>
-      <th scope="col">Books</th>
+      <th scope="col">Author</th>
       <th scope="col">Action</th>
+      <th scope="col">Amount</th>
     </tr>
   </thead>
   <tbody>
+    {{#each model.user.books as |book|}}
       <tr>
-        <td>{{model.user.name}}</td>
-        <td>
-          {{#each model.user.books as |book|}}
-          <ul>
-              <li>{{book.name}}</li>
-          </ul>
-            {{/each}}
-          </td>
-          <td>
-            {{#each model.user.books as |book|}}
-            <ul>
-              <!-- DELETE under development-->
-              <button type="button" class="btn btn-danger"{{action 'deleteFromUserLibrary' book}} > Return Order </button>
-            </ul>
-              {{/each}}
-            </td>
-      </tr>
+        <td>{{book.name}}</td>
+        <td>{{book.author}}</td>
+        <td>1</td>
+        <td><button type="button" class="btn btn-secondary"{{action 'deleteFromUserLibrary' book}} > Return Order </button></td>
+        </tr>
+    {{/each}}
   </tbody>
 </table>
-<!-- Modal -->
