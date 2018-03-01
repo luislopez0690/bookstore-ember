@@ -21,10 +21,17 @@
                                       {{input value=password type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
                                     </div>
                                 </div>
-                                <button class="btn btn-success btn-lg float-right"{{action 'checkIfUserExist' name password}}>Login</button>
-                                <button class="btn btn-success btn-lg float-right"{{action 'createUser' name password}}>Sign In</button>
+                                <button class="btn btn-success btn-lg float-right"{{action 'logIn' name password}}>Login</button>
+                                <button class="btn btn-success btn-lg float-right"{{action 'signUp' name password}}>Sign Up</button>
                             </form>
                         </div>
+                        {{#if responseMessage}}
+                        <div class="alert alert-danger">{{responseMessage}}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close ">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        {{/if}}
                         <!--/card-block-->
                     </div>
                     <!-- /form card login -->
@@ -34,5 +41,6 @@
         </div>
         <!--/col-->
     </div>
-    <!--/row-->
+
+        <!--/row-->
 </div>
