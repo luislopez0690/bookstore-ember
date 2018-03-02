@@ -6,19 +6,19 @@ export default Component.extend({
   actions: {
     setModalBook: function(currentBook) {
       this.set('currentBook', currentBook);
-      let transaction = this.get('store').createRecord('transaction', {
+      const transaction = this.get('store').createRecord('transaction', {
         user: this.get('user'),
         book: currentBook
       });
       this.set('transaction', transaction);
     },
     addToUserLibrary: function() {
-      let currentTransaction = this.get('transaction')
+      const currentTransaction = this.get('transaction')
       this.sendAction('addToUserLibrary', currentTransaction);
     },
     //currently under development
     deleteFromUserLibrary: function(book) {
-      let currentTransaction = this.get('store').peekRecord('transaction', {
+      const currentTransaction = this.get('store').peekRecord('transaction', {
         user: this.get('model.user'),
         book: book
       });

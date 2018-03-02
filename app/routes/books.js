@@ -7,7 +7,8 @@ export default Route.extend({
   },
   setupController(controller, model) {
     this._super(controller, model);
-    this.controller.set('user', this.modelFor('application'));
+    controller.set('user', this.modelFor('application').get('user'));
+    this.modelFor('application').set('loginHref', false);
   },
   actions: {
     addToUserLibrary(transaction) {

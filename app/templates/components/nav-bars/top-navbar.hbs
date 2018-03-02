@@ -5,18 +5,26 @@
    </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item" >
         {{#link-to 'books' class="nav-link"}}Home{{/link-to}}
       </li>
+      {{#if user}}
       <li class="nav-item">
         {{#link-to 'users.current' user.id class="nav-link"}}Orders{{/link-to}}
       </li>
+      {{/if}}
       <li class="nav-item">
         {{#link-to 'support' class="nav-link"}}Contact Us{{/link-to}}
       </li>
     </ul>
+    {{#if user}}
     <span class="navbar-text">
       {{user.name}}
     </span>
+    {{else}}
+    <span class="navbar-text">
+      {{#link-to 'login' class="nav-link"}}login{{/link-to}}
+    </span>
+    {{/if}}
   </div>
 </div>

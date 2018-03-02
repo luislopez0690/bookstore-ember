@@ -15,8 +15,10 @@ export default Component.extend({
         name: username,
         password: password
       });
-
       this.sendAction('signUp', newUser);
+    },
+    reloadAlert: function() {
+      this.set('responseMessage', '');
     }
   }
 });
