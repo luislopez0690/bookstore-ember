@@ -1,30 +1,66 @@
-<div class="container py-5">
-    <div class="row">
+<div class="container py-5 login-signup-modal" >
+    <div class="row" >
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <div class="card rounded-0">
-                        <div class="card-header">
-                            <h3 class="mb-0">Login</h3>
-                        </div>
+                <div class="col-md-4 mx-auto">
+                    <div class="card text-center" >
+                          <ul class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="signup-tab" data-toggle="tab" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="login-tab" data-toggle="tab" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Login</a>
+                            </li>
+                          </ul>
+                          <br>
+                          <div class="container">
+                            <img src="http://via.placeholder.com/300x100" alt="logo Image">
+                          </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" id="formLogin">
+                          <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="signup-tab">
+                              <form class="form" role="form" autocomplete="off" id="formSignUp">
                                 <div class="form-group">
                                   <div class="input-group-prepend">
-                                      <div class="input-group-text rounded-0">@</div>
-                                      {{input value=name type="text" class="form-control form-control-lg rounded-0" id="inlineFormInputGroupUsername" placeholder="Username" }}
+                                      <div class="input-group-text rounded-0">{{fa-icon "user" fixedWidth=true}}</div>
+                                      {{input value=name type="text" class="form-control form-control-lg rounded-0"  placeholder="name" }}
                                   </div>
                                 </div>
-                                <div class="form-group">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text rounded-0">P</div>
-                                      {{input value=password type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
+                                  <div class="form-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text rounded-0">{{fa-icon "envelope" fixedWidth=true}}</div>
+                                        {{input value=username type="text" class="form-control form-control-lg rounded-0"  placeholder="Username" }}
                                     </div>
-                                </div>
-                                <button class="btn btn-success btn-lg float-right"{{action 'logIn' name password}}>Login</button>
-                                <button class="btn btn-success btn-lg float-right"{{action 'signUp' name password}}>Sign Up</button>
-                            </form>
-                        </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="input-group-prepend">
+                                      <div class="input-group-text rounded-0">{{fa-icon "lock" fixedWidth=true}}</div>
+                                        {{input value=password type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
+                                      </div>
+                                  </div>
+                                  <button class="btn btn-outline-dark btn-lg btn-block"{{action 'signUp' name password}}>Sign Up</button>
+                              </form>
+                          </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="login-tab">
+                                  <form class="form" role="form" autocomplete="off" id="formLogin">
+                                      <div class="form-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text rounded-0">@</div>
+                                            {{input value=name type="text" class="form-control form-control-lg rounded-0" placeholder="Username" }}
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text rounded-0">P</div>
+                                            {{input value=password type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
+                                          </div>
+                                      </div>
+                                      <button class="btn btn-outline-dark btn-lg  btn-block"{{action 'logIn' name password}}>Login</button>
+                                  </form>
+                              </div>
+                            </div>
+                      </div>
+
                         {{#if responseMessage}}
                         <div class="alert alert-danger">{{responseMessage}}
                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -32,15 +68,9 @@
                           </button>
                         </div>
                         {{/if}}
-                        <!--/card-block-->
                     </div>
-                    <!-- /form card login -->
                 </div>
             </div>
-            <!--/row-->
         </div>
-        <!--/col-->
     </div>
-
-        <!--/row-->
 </div>

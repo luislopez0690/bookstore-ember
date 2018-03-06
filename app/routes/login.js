@@ -1,7 +1,8 @@
 import Route from '@ember/routing/route';
-
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  request: service('request'),
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('user', this.modelFor('application').get('user'));
@@ -9,15 +10,25 @@ export default Route.extend({
   },
   actions: {
     signUp(user) {
-      user.save().then((data) => {
-        this.modelFor('application').set('user', user);
-        this.transitionTo('books');
-      }).catch((error) => {
-        user.rollbackAttributes();
-        console.log(error);
-        console.log(user);
-        this.controller.set('responseMessage', error.errors[0]);
-      })
+      const component = this;
+      console.log(user);
+      this.get('request').request({
+        method: 'POST',
+        url: `/users/signup`,
+        data: {
+          name: user.get('name'),
+          password: user.get('password')
+        },
+        cb: function(data) {
+          console.log(this);
+          component.modelFor('application').set('user', user);
+          component.transitionTo('books');
+        },
+        errorCb: function(error) {
+          user.rollbackAttributes();
+          component.controller.set('responseMessage', error);
+        }
+      });
     }
   }
 });
