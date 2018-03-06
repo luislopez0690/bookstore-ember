@@ -23,39 +23,39 @@
                                 <div class="form-group">
                                   <div class="input-group-prepend">
                                       <div class="input-group-text rounded-0">{{fa-icon "user" fixedWidth=true}}</div>
-                                      {{input value=name type="text" class="form-control form-control-lg rounded-0"  placeholder="name" }}
+                                      {{input value=signupName type="text" class="form-control form-control-lg rounded-0"  placeholder="name" }}
                                   </div>
                                 </div>
                                   <div class="form-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text rounded-0">{{fa-icon "envelope" fixedWidth=true}}</div>
-                                        {{input value=username type="text" class="form-control form-control-lg rounded-0"  placeholder="Username" }}
+                                        {{input value=signupEmail type="text" class="form-control form-control-lg rounded-0"  placeholder="Email" }}
                                     </div>
                                   </div>
                                   <div class="form-group">
                                     <div class="input-group-prepend">
                                       <div class="input-group-text rounded-0">{{fa-icon "lock" fixedWidth=true}}</div>
-                                        {{input value=password type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
+                                        {{input value=signupPassword type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
                                       </div>
                                   </div>
-                                  <button class="btn btn-outline-dark btn-lg btn-block"{{action 'signUp' name password}}>Sign Up</button>
+                                  <button class="btn btn-outline-dark btn-lg btn-block" disabled={{isValidSignup}} {{action 'signUp' signupEmail signupPassword}}>Sign Up</button>
                               </form>
                           </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="login-tab">
                                   <form class="form" role="form" autocomplete="off" id="formLogin">
                                       <div class="form-group">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text rounded-0">@</div>
-                                            {{input value=name type="text" class="form-control form-control-lg rounded-0" placeholder="Username" }}
+                                            <div class="input-group-text rounded-0">{{fa-icon "envelope" fixedWidth=true}}</div>
+                                            {{input value=name type="text" class="form-control form-control-lg rounded-0" placeholder="Email" }}
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="input-group-prepend">
-                                          <div class="input-group-text rounded-0">P</div>
+                                          <div class="input-group-text rounded-0">{{fa-icon "lock" fixedWidth=true}}</div>
                                             {{input value=password type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
                                           </div>
                                       </div>
-                                      <button class="btn btn-outline-dark btn-lg  btn-block"{{action 'logIn' name password}}>Login</button>
+                                      <button class="btn btn-outline-dark btn-lg  btn-block" disabled={{isValid}} {{action 'login' name password}}>Login</button>
                                   </form>
                               </div>
                             </div>
