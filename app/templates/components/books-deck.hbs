@@ -27,7 +27,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" {{action 'addToUserLibrary'}} data-dismiss="modal" >Buy</button>
+        {{#if user}}
+          <button type="button" class="btn btn-light" {{action 'addToUserLibrary'}} data-dismiss="modal" >Buy</button>
+        {{else}}
+        <button type="button" data-dismiss="modal">
+          {{#link-to 'login'  class="btn btn-light"}}Login to Buy{{/link-to}}
+        </button>
+        {{/if}}
       </div>
     </div>
   </div>

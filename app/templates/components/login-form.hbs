@@ -38,7 +38,7 @@
                                         {{input value=signupPassword type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
                                       </div>
                                   </div>
-                                  <button class="btn btn-outline-dark btn-lg btn-block" disabled={{isValidSignup}} {{action 'signUp' signupEmail signupPassword}}>Sign Up</button>
+                                  <button class="btn btn-outline-dark btn-lg btn-block" disabled={{isValidSignup}} {{action 'signUp' signupName signupEmail signupPassword}}>Sign Up</button>
                               </form>
                           </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="login-tab">
@@ -46,16 +46,16 @@
                                       <div class="form-group">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text rounded-0">{{fa-icon "envelope" fixedWidth=true}}</div>
-                                            {{input value=name type="text" class="form-control form-control-lg rounded-0" placeholder="Email" }}
+                                            {{input value=loginEmail type="text" class="form-control form-control-lg rounded-0" placeholder="Email" }}
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="input-group-prepend">
                                           <div class="input-group-text rounded-0">{{fa-icon "lock" fixedWidth=true}}</div>
-                                            {{input value=password type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
+                                            {{input value=loginPassword type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
                                           </div>
                                       </div>
-                                      <button class="btn btn-outline-dark btn-lg  btn-block" disabled={{isValid}} {{action 'login' name password}}>Login</button>
+                                      <button class="btn btn-outline-dark btn-lg  btn-block" disabled={{isValid}} {{action 'login' loginEmail loginPassword}}>Login</button>
                                   </form>
                               </div>
                             </div>
@@ -63,7 +63,7 @@
 
                         {{#if responseMessage}}
                         <div class="alert alert-danger">{{responseMessage}}
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close" {{action 'reloadAlert'}}>
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>

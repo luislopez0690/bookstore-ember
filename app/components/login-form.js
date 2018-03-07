@@ -1,19 +1,19 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import EmberObject, { computed, observer } from '@ember/object';
-import { gte, match, not } from '@ember/object/computed';
+import EmberObject, { computed } from '@ember/object';
+import { match, not } from '@ember/object/computed';
 
 export default Component.extend({
   store: service(),
 
-  name: '',
+  loginEmail: '',
   signupEmail: '',
 
-  nameValid: match('name', /^.+@.+\..+$/),
+  nameValid: match('loginEmail', /^.+@.+\..+$/),
   signupNameValid: match('signupEmail', /^.+@.+\..+$/),
 
-  isValid: computed('nameValid', 'password', function() {
-    return !(this.get('nameValid') && this.get('password'));
+  isValid: computed('nameValid', 'loginPassword', function() {
+    return !(this.get('nameValid') && this.get('loginPassword'));
   }),
   isValidSignup: computed('signupNameValid', 'signupPassword', function() {
     return !(this.get('signupNameValid') && this.get('signupPassword'));
@@ -22,15 +22,15 @@ export default Component.extend({
   actions: {
     login: function(username, password) {
       let currentUser = this.get('store').createRecord('user', {
-        name: username,
+        email: username,
         password: password
       });
-      console.log('CurrentUser: ', currentUser);
       this.sendAction('login', currentUser);
     },
-    signUp: function(username, password) {
+    signUp: function(name, username, password) {
       let newUser = this.get('store').createRecord('user', {
-        name: username,
+        name: name,
+        email: username,
         password: password
       });
       this.sendAction('signUp', newUser);

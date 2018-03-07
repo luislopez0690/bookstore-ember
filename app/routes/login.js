@@ -11,47 +11,47 @@ export default Route.extend({
   actions: {
     signUp(user) {
       const component = this;
-      console.log('SIGNUP');
       component.get('request').request({
         method: 'POST',
         url: `/users/signup`,
         data: {
           name: user.get('name'),
+          email: user.get('email'),
           password: user.get('password')
         },
         cb: function(data) {
           user.rollbackAttributes();
           component.get('store').pushPayload(data);
-          console.log(data);
           const userCurrent = component.get('store').peekRecord('user', data.data.id);
           component.modelFor('application').set('user', userCurrent);
           component.transitionTo('books');
         },
         errorCb: function(error) {
-
-          component.controller.set('responseMessage', "Choose a different username");
+          user.rollbackAttributes();
+          component.controller.set('responseMessage', error.responseJSON.errors[0]);
         }
       });
     },
     login(user) {
       const component = this;
-      console.log('LOGIN');
       component.get('request').request({
         method: 'POST',
         url: `/users/login`,
         data: {
           name: user.get('name'),
+          email: user.get('email'),
           password: user.get('password')
         },
         cb: function(data) {
-
-          component.modelFor('application').set('user', user);
+          user.rollbackAttributes();
           component.get('store').pushPayload(data);
+          const userCurrent = component.get('store').peekRecord('user', data.data.id);
+          component.modelFor('application').set('user', userCurrent);
           component.transitionTo('books');
         },
         errorCb: function(error) {
-
-          component.controller.set('responseMessage', "Username or Password are incorrect");
+          user.rollbackAttributes();
+          component.controller.set('responseMessage', error.responseJSON.errors[0]);
         }
       });
     }
