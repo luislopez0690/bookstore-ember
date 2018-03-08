@@ -13,7 +13,7 @@ export default Component.extend({
       this.set('transaction', transaction);
     },
     addToUserLibrary: function() {
-      const currentTransaction = this.get('transaction')
+      const currentTransaction = this.get('transaction');
       this.sendAction('addToUserLibrary', currentTransaction);
     },
     //currently under development
