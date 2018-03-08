@@ -1,7 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr('string'),
-  password: DS.attr('string'),
-  userType: DS.attr('string')
+  name: DS.attr(),
+  email: DS.attr(),
+  password: DS.attr(),
+  userType: DS.attr(),
+  books: DS.hasMany('books', { async: true }),
+  transactions: DS.hasMany('transactions', { async: true })
 });

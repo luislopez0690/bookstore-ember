@@ -1,16 +1,76 @@
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="container py-5 login-signup-modal" >
+    <div class="row" >
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+                    <div class="card login-card text-center" >
+                          <ul class="nav nav-tabs nav-fill login-form-card" id="nav-tab" role="tablist">
+                            <li class="nav-item">
+                              <a class="nav-link active" id="signup-tab" data-toggle="tab" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" id="login-tab" data-toggle="tab" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Login</a>
+                            </li>
+                          </ul>
+                          <br>
+                          <div class="container">
+                            <img src="http://via.placeholder.com/300x100" alt="logo Image">
+                          </div>
+                        <div class="card-body">
+                          <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="signup-tab">
+                              <form class="form" role="form" autocomplete="off" id="formSignUp">
+                                <div class="form-group">
+                                  <div class="input-group-prepend">
+                                      <div class="input-group-text rounded-0">{{fa-icon "user" fixedWidth=true}}</div>
+                                      {{input value=signupName type="text" class="form-control form-control-lg rounded-0"  placeholder="name" }}
+                                  </div>
+                                </div>
+                                  <div class="form-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text rounded-0">{{fa-icon "envelope" fixedWidth=true}}</div>
+                                        {{input value=signupEmail type="text" class="form-control form-control-lg rounded-0"  placeholder="Email" }}
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="input-group-prepend">
+                                      <div class="input-group-text rounded-0">{{fa-icon "lock" fixedWidth=true}}</div>
+                                        {{input value=signupPassword type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
+                                      </div>
+                                  </div>
+                                  <button class="btn btn-outline-dark btn-lg btn-block" disabled={{isValidSignup}} {{action 'signUp' signupName signupEmail signupPassword}}>Sign Up</button>
+                              </form>
+                          </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="login-tab">
+                                  <form class="form" role="form" autocomplete="off" id="formLogin">
+                                      <div class="form-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text rounded-0">{{fa-icon "envelope" fixedWidth=true}}</div>
+                                            {{input value=loginEmail type="text" class="form-control form-control-lg rounded-0" placeholder="Email" }}
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="input-group-prepend">
+                                          <div class="input-group-text rounded-0">{{fa-icon "lock" fixedWidth=true}}</div>
+                                            {{input value=loginPassword type="password" class="form-control form-control-lg rounded-0" placeholder="Password"}}
+                                          </div>
+                                      </div>
+                                      <button class="btn btn-outline-dark btn-lg  btn-block" disabled={{isValidLogin}} {{action 'login' loginEmail loginPassword}}>Login</button>
+                                  </form>
+                              </div>
+                            </div>
+                      </div>
+
+                        {{#if responseMessage}}
+                        <div class="alert alert-danger">{{responseMessage}}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close" {{action 'reloadAlert'}}>
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

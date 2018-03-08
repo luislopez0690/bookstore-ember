@@ -1,0 +1,32 @@
+.login-signup-modal {
+  .login-card {
+    border: 1px solid black;
+  }
+
+  .login-form-card {
+    a {
+      color: white;
+      background-color: #343a40;
+
+      &.active {
+        color: black;
+        background-color: #fff;
+        border-color: #dee2e6 #dee2e6 #fff;
+      }
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+
+  .input-group-prepend:hover {
+    -webkit-box-shadow: 0 0 29px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 29px -2px rgba(0,0,0,0.75);
+    box-shadow: 0 0 29px -2px rgba(0,0,0,0.75);
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+  }
+}
