@@ -21,21 +21,21 @@ export default Component.extend({
 
   actions: {
     login: function(username, password) {
-      let currentUser = this.get('store').createRecord('user', {
+      const currentUser = this.get('store').createRecord('user', {
         email: username,
         password: password
       });
       this.sendAction('login', currentUser);
     },
     signUp: function(name, username, password) {
-      let newUser = this.get('store').createRecord('user', {
+      const newUser = this.get('store').createRecord('user', {
         name: name,
         email: username,
         password: password
       });
       this.sendAction('signUp', newUser);
     },
-    reloadAlert: function() {
+    reloadAlert() {
       this.set('responseMessage', '');
     }
   }

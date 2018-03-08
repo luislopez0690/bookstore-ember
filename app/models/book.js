@@ -8,8 +8,8 @@ export default DS.Model.extend({
   image: DS.attr(),
   price: DS.attr(),
   amount: DS.attr(),
-  users: DS.hasMany('user', { async: true }),
-  transactions: DS.hasMany('transactions', { async: true })
+  users: DS.hasMany('user'),
+  transactions: DS.hasMany('transactions')
 
 
 });

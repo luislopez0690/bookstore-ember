@@ -6,8 +6,8 @@ const loginHref = href[href.length - 1] === 'login';
 
 export default Route.extend({
   model() {
-    let modelHash = {
-      loginHref: loginHref,
+    const modelHash = {
+      loginHref,
       user: null
     }
     return Object.create(modelHash);
