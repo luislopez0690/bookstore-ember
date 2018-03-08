@@ -1,9 +1,13 @@
 {{nav-bars/info-navbar  title="The Bookstore"}}
+
+{{#book-filter filter=(action 'filterByName') as |filteredResults|}}
 <div class= "card-deck">
-  {{#each model as |book|}}
-  {{all-books book=book pickCurrentBook=(action "setModalBook") }}
+  {{#each filteredResults as |book|}}
+  {{all-books book=book pickCurrentBook=(action 'setModalBook') }}
   {{/each}}
 </div>
+{{/book-filter}}
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content bg-dark text-white">

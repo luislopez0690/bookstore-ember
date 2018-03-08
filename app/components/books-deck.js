@@ -23,7 +23,14 @@ export default Component.extend({
         book: book
       });
       this.sendAction('deleteFromUserLibrary', currentTransaction.deleteRecord());
+    },
+    filterByName(param) {
+      console.log(param);
+      if (param !== '') {
+        return this.get('store').query('book', { name: param });
+      } else {
+        return this.get('store').findAll('book');
+      }
     }
-    ///
   }
 });
