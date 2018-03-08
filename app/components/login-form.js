@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import EmberObject, { computed } from '@ember/object';
-import { match, not } from '@ember/object/computed';
+import { match } from '@ember/object/computed';
 
 export default Component.extend({
   store: service(),
@@ -9,11 +9,11 @@ export default Component.extend({
   loginEmail: '',
   signupEmail: '',
 
-  nameValid: match('loginEmail', /^.+@.+\..+$/),
+  loginNameValid: match('loginEmail', /^.+@.+\..+$/),
   signupNameValid: match('signupEmail', /^.+@.+\..+$/),
 
-  isValid: computed('nameValid', 'loginPassword', function() {
-    return !(this.get('nameValid') && this.get('loginPassword'));
+  isValidLogin: computed('loginNameValid', 'loginPassword', function() {
+    return !(this.get('loginNameValid') && this.get('loginPassword'));
   }),
   isValidSignup: computed('signupNameValid', 'signupPassword', function() {
     return !(this.get('signupNameValid') && this.get('signupPassword'));
