@@ -1,6 +1,6 @@
 {{nav-bars/info-navbar  title="The Bookstore"}}
 
-{{#book-filter filter=(action 'filterBy') as |filteredResults|}}
+{{#book-filter filter=(action 'filterBy') filterValue=(mut filterValue) as |filteredResults|}}
 <div class= "card-deck">
   {{#each filteredResults as |book|}}
   {{all-books book=book pickCurrentBook=(action 'setModalBook') }}

@@ -4,7 +4,7 @@
      <div class="input-group-prepend">
        <div class="btn-group">
          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Filter By
+           {{filterValue}}
          </button>
          <div class="dropdown-menu">
            <a class="dropdown-item" {{action "filterParam" "name"}} >Name</a>
@@ -15,4 +15,4 @@
    </div>
  </div>
  </form>
-{{yield results filterParam}}
+{{yield results}}

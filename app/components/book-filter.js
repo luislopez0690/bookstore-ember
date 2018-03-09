@@ -3,14 +3,12 @@ import Component from '@ember/component';
 export default Component.extend({
   classNames: ['book-filter'],
   value: '',
-
+  filterValue: 'name',
   init() {
     this._super(...arguments);
     this.get('filter')('').then((allResults) => {
       this.set('results', allResults.results);
-
     });
-    this.set('filterParam', "name");
   },
 
   actions: {
@@ -25,7 +23,7 @@ export default Component.extend({
     },
     filterParam(filterProperty) {
       console.log('filterProperty inside book-filter.js: ', filterProperty);
-      this.set('filterParam', filterProperty);
+      this.set('filterValue', filterProperty);
     }
   }
 

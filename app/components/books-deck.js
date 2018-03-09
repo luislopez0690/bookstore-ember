@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   store: service(),
+  filterValue: "name",
   actions: {
     setModalBook(currentBook) {
       this.set('currentBook', currentBook);
@@ -25,7 +26,7 @@ export default Component.extend({
       this.sendAction('deleteFromUserLibrary', currentTransaction.deleteRecord());
     },
     filterBy(param) {
-      let filterParam = this.get('filterParam');
+      let filterParam = this.get('filterValue');
       if (param !== '') {
         if (filterParam == "name") {
           return this.get('store')
