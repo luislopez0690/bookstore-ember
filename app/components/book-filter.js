@@ -22,7 +22,6 @@ export default Component.extend({
       });
     },
     filterParam(filterProperty) {
-      console.log('filterProperty inside book-filter.js: ', filterProperty);
       this.set('filterValue', filterProperty);
     }
   }

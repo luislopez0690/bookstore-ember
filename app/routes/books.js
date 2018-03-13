@@ -1,10 +1,15 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-
-  model() {
-    return this.store.findAll('book');
+  queryParams: {
+    page: {
+      refreshModel: true
+    }
   },
+  model(params) {
+    return this.get('store').query('book', params);
+  },
+
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('user', this.modelFor('application').get('user'));

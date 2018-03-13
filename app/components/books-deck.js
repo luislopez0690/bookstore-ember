@@ -25,12 +25,21 @@ export default Component.extend({
       });
       this.sendAction('deleteFromUserLibrary', currentTransaction.deleteRecord());
     },
+    nextPage() {
+      this.sendAction('nextPage');
+    },
+
+    prevPage() {
+      this.sendAction('prevPage');
+    },
     filterBy(param) {
+      console.log('current Model: ', this.model, param);
       let filterParam = this.get('filterValue');
       if (param !== '') {
         if (filterParam == "name") {
           return this.get('store')
             .query('book', { name: param }).then((results) => {
+
               return { query: param, results: results };
             });
         } else {
