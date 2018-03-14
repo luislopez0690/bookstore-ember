@@ -8,12 +8,12 @@
 </div>
 {{/book-filter}}
 
-<div class="pagination-centered">
-  <ul class="pagination">
-    <li class="arrow"><a href="" {{action 'prevPage'}}>&laquo;</a></li>
-    <li class="arrow"><a href="" {{action 'nextPage'}}>&raquo;</a></li>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" {{action 'prevPage'}}>&laquo;</a></li>
+    <li class="page-item"><a class="page-link" {{action 'nextPage'}}>&raquo;</a></li>
   </ul>
-</div>
+</nav>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
