@@ -4,12 +4,16 @@ export default Route.extend({
   queryParams: {
     page: {
       refreshModel: true
+    },
+    totalPages: {
+      refreshModel: true
     }
   },
+
   model(params) {
+    console.log('the params are: ', params)
     return this.get('store').query('book', params);
   },
-
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('user', this.modelFor('application').get('user'));
@@ -27,6 +31,18 @@ export default Route.extend({
     //currently under development
     deleteFromUserLibrary(transaction) {
       transaction.save();
-    }
+    },
+    //
+    // handleFilterEntry(filterInputValue, filterAction) {
+    //   console.log('filterInput', filterInputValue, filterAction, this.get('value'), this.get('filter'));
+    //   filterAction(filterInputValue).then((filterResults) => {
+    //     if (filterResults.query === this.get('value')) {
+    //       this.set('results', filterResults.results);
+    //     }
+    //   });
+    // },
+    // filterParam(filterProperty) {
+    //   this.set('filterValue', filterProperty);
+    // }
   }
 });

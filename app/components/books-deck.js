@@ -26,19 +26,19 @@ export default Component.extend({
       this.sendAction('prevPage');
     },
     filterBy(param) {
-      console.log('current Model: ', this.model, param);
-      console.log('current MetaData: ', this.model.meta);
+      console.log('params inside filterBy: ', this.get('model.query.page'));
       let filterParam = this.get('filterValue');
+      let currentPage = this.get('model.query.page');
       if (param !== '') {
         if (filterParam == "name") {
           return this.get('store')
-            .query('book', { name: param }).then((results) => {
+            .query('book', { name: param, page: currentPage }).then((results) => {
 
               return { query: param, results: results };
             });
         } else {
           return this.get('store')
-            .query('book', { author: param }).then((results) => {
+            .query('book', { author: param, page: currentPage }).then((results) => {
               return { query: param, results: results };
             });
         }
