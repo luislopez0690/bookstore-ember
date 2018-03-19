@@ -22,9 +22,10 @@
     }
 
     .main-page-book-body {
-      height: 16rem;
+      height: 19rem;
     }
   }
   @import './nav-bars/info-navbar';
   @import './nav-bars/top-navbar';
+  @import 'book-filter';
 }
