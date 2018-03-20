@@ -8,10 +8,10 @@ export default Route.extend({
     totalPages: {
       refreshModel: true
     },
-    name: {
+    currentSearch: {
       refreshModel: true
     },
-    author: {
+    filterValue: {
       refreshModel: true
     }
   },

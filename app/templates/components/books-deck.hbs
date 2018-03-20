@@ -1,16 +1,17 @@
 {{nav-bars/info-navbar  title="The Bookstore"}}
 
-{{book-filter filter=(action 'filterBy') filterValue=(mut filterValue)   handleFilterEntry="handleFilterEntry" filterParam="filterParam"}}
+{{book-filter filter=(action 'filterBy') currentFilterValue=(mut currentFilterValue)  currentSearch=(mut currentSearch) model=model handleFilterEntry="handleFilterEntry" filterParam="filterParam"}}
 <div class= "card-deck">
   {{#each model as |book|}}
   {{all-books book=book pickCurrentBook=(action 'setModalBook') }}
   {{/each}}
 </div>
 
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation" class="footer">
   <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" {{action 'prevPage'}}>&laquo; prev</a></li>
-    <li class="page-item"><a class="page-link" {{action 'nextPage'}}>next &raquo;</a></li>
+    <button class="page-item" disabled={{prevDisabled}}><a class="page-link" {{action 'prevPage'}}>&laquo; prev</a></button>
+        <button class="page-item active activePagination"><a class="page-link">{{currentPage}}</a></button>
+    <button class="page-item"disabled={{nextDisabled}}><a class="page-link"{{action 'nextPage'}}>next &raquo;</a></button>
   </ul>
 </nav>
 

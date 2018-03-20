@@ -1,18 +1,15 @@
-
 <form class="form-inline" id="book-filter">
-   <div class="input-group">
-     <div class="input-group-prepend">
-       <div class="btn-group">
-         <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           {{filterValue}}
-         </button>
-         <div class="dropdown-menu">
-           <a class="dropdown-item" {{action "filterParam" "name"}} >Name</a>
-           <a class="dropdown-item" {{action "filterParam" "author"}} >Author</a>
-         </div>
-     </div>
-    {{input value=value class="form-control" key-up=(action 'handleFilterEntry') placeholder="Search books"}}
-   </div>
- </div>
- </form>
+  <label class="sr-only">Filter</label>
+  <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="form-control btn btn-secondary dropdown-toggle mb-2 mr-sm-2">
+ {{currentFilterValue}}
+</button>
+<div class="dropdown-menu">
+ <a class="dropdown-item" {{action "filterParam" "name"}} >Title</a>
+ <a class="dropdown-item" {{action "filterParam" "author"}} >Author</a>
+</div>
+  <label class="sr-only">Search</label>
+  <div class="input-group mb-2 mr-sm-2">
+    {{input value=currentSearch class="form-control" type="text" placeholder="Search"}}
+  </div>
+</form>
 {{yield results}}

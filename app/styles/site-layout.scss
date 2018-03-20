@@ -24,6 +24,17 @@
     .main-page-book-body {
       height: 19rem;
     }
+
+    .activePagination {
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+
+    .footer {
+      .page-item {
+        margin-top: 12px;
+      }
+    }
   }
   @import './nav-bars/info-navbar';
   @import './nav-bars/top-navbar';

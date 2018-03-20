@@ -1,19 +1,17 @@
 import Component from '@ember/component';
+import EmberObject, { computed } from '@ember/object';
 
 export default Component.extend({
   classNames: ['book-filter'],
 
   actions: {
-    handleFilterEntry() {
-      let filterInputValue = this.get('value');
-      let filterAction = this.get('filter');
-
-      this.sendAction('handleFilterEntry', filterInputValue, filterAction);
-    },
     filterParam(filterProperty) {
-      this.set('filterValue', filterProperty);
+      if (filterProperty == "name") {
+        this.set('currentFilterValue', "Title");
+      } else {
+        this.set('currentFilterValue', "Author");
+      }
       this.sendAction('filterParam', filterProperty);
-
     }
   }
 
