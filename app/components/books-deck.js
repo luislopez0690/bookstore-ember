@@ -10,13 +10,13 @@ export default Component.extend({
     return ((this.get('model.query.page') - 1) < 0);
   }),
   nextDisabled: computed('metaData', function() {
-    return ((this.get('model.query.page') + 1) > (this.get('metaData.total-pages') - 1));
+    return (this.get('model.query.page') + 1) > (this.get('metaData.total-pages') - 1);
   }),
   currentPage: computed('model.query.page', function() {
     return (this.get('model.query.page') + 1);
   }),
   currentFilterValue: computed('model.query.filterValue', function() {
-    if (this.get('model.query.filterValue') == "name") {
+    if (this.get('model.query.filterValue') === "name") {
       return "Title";
     } else {
       return "Author";

@@ -10,8 +10,7 @@ export default Controller.extend({
 
 
   metaData: computed('model', function() {
-    let meta = this.get('model.meta');
-    return meta;
+    return this.get('model.meta');
   }),
   actions: {
     nextPage() {
@@ -34,7 +33,7 @@ export default Controller.extend({
         this.set('lastPage', currentPage);
       }
       if (param !== '') {
-        if (filterParam == "name") {
+        if (filterParam === 'name') {
           this.set('page', 0);
           this.set('author', null);
           this.set('name', param);

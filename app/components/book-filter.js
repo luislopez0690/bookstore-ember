@@ -6,10 +6,10 @@ export default Component.extend({
 
   actions: {
     filterParam(filterProperty) {
-      if (filterProperty == "name") {
-        this.set('currentFilterValue', "Title");
+      if (filterProperty === 'name') {
+        this.set('currentFilterValue', 'Title');
       } else {
-        this.set('currentFilterValue', "Author");
+        this.set('currentFilterValue', 'Author');
       }
       this.sendAction('filterParam', filterProperty);
     }

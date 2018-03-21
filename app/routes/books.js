@@ -33,9 +33,6 @@ export default Route.extend({
         user.get('books').pushObject(book);
         this.transitionTo('users.current', user.get('id'));
       })
-    },
-    handleFilterEntry(filterInputValue, filterAction) {
-      filterAction(filterInputValue)
     }
   }
 });
