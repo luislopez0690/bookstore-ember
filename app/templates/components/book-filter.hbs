@@ -1,15 +1,25 @@
-<form class="form-inline" id="book-filter">
-  <label class="sr-only">Filter</label>
-  <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="form-control btn btn-secondary dropdown-toggle mb-2 mr-sm-2">
- {{currentFilterValue}}
-</button>
-<div class="dropdown-menu">
- <a class="dropdown-item" {{action "filterParam" "name"}} >Title</a>
- <a class="dropdown-item" {{action "filterParam" "author"}} >Author</a>
+<div id="book-filter">
+  {{input value=currentSearch class="form-control category-search" type="text" placeholder="Search for Books by Title or Author"}}
 </div>
-  <label class="sr-only">Search</label>
-  <div class="input-group mb-2 mr-sm-2">
-    {{input value=currentSearch class="form-control" type="text" placeholder="Search"}}
-  </div>
-</form>
+<ul class="nav justify-content-center" id="book-filter">
+  <li class="nav-item">
+    <a class="nav-link category-link " href="#" {{action "filterParam" "drama"}}>Drama</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link category-link" href="#" onclick={{isActive}} {{action "filterParam" "romance"}}>Romance</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link category-link" href="#" {{action "filterParam" "fantasy"}}>Fantasy</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link category-link" href="#" {{action "filterParam" "adventure"}}>Adventure</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link category-link" href="#" {{action "filterParam" "mystery"}}>Mystery</a>
+  </li>
+</ul>
+
+
+
+
 {{yield results}}

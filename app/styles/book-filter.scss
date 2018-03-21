@@ -1,3 +1,27 @@
 #book-filter {
-  margin-bottom: 0.4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  .category-search {
+    height: 3rem;
+  }
+
+  .category-link {
+    border-radius: 100px 100px 100px 100px;
+    -moz-border-radius: 100px 100px 100px 100px;
+    -webkit-border-radius: 100px 100px 100px 100px;
+    color: black;
+    border: 1px solid #000000;
+    -moz-box-sizing: padding-box;
+    box-sizing: padding-box;
+    margin-right: 1rem;
+
+    &:hover {
+      color: green;
+    }
+
+    &:active {
+      color: green;
+    }
+  }
 }

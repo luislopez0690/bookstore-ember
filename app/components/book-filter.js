@@ -3,15 +3,16 @@ import EmberObject, { computed } from '@ember/object';
 
 export default Component.extend({
   classNames: ['book-filter'],
+  isActive: true,
 
   actions: {
     filterParam(filterProperty) {
-      if (filterProperty === 'name') {
-        this.set('currentFilterValue', 'Title');
+      console.log(this.get('filterValue'));
+      if (this.get('filterValue') === filterProperty) {
+        this.sendAction('filterParam', null);
       } else {
-        this.set('currentFilterValue', 'Author');
+        this.sendAction('filterParam', filterProperty);
       }
-      this.sendAction('filterParam', filterProperty);
     }
   }
 
