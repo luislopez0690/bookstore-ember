@@ -7,7 +7,7 @@ export default Component.extend({
   filterValue: "Title",
 
   prevDisabled: computed('model.query.page', function() {
-    return ((this.get('model.query.page') - 1) < 0);
+    return (this.get('model.query.page') - 1) < 0;
   }),
   nextDisabled: computed('metaData', function() {
     return (this.get('model.query.page') + 1) > (this.get('metaData.total-pages') - 1);
@@ -36,11 +36,9 @@ export default Component.extend({
       const currentTransaction = this.get('transaction');
       this.sendAction('addToUserLibrary', currentTransaction);
     },
-    nextPage() {
-      this.sendAction('nextPage');
-    },
-    prevPage() {
-      this.sendAction('prevPage');
+    changePage(action) {
+      console.log(action);
+      this.sendAction('changePage', action);
     },
     filterBy(param) {
       this.sendAction('filterBy', param);

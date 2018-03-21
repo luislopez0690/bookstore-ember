@@ -13,15 +13,16 @@ export default Controller.extend({
     return this.get('model.meta');
   }),
   actions: {
-    nextPage() {
-      if (this.get('page') < this.get('metaData.total-pages') - 1) {
-        let page = this.get('page');
-        this.set('page', page + 1);
-      }
-    },
-    prevPage() {
-      if (this.get('page') > 0) {
-        this.set('page', this.get('page') - 1);
+    changePage(action) {
+      if (action === '+') {
+        if (this.get('page') < this.get('metaData.total-pages') - 1) {
+          let page = this.get('page');
+          this.set('page', page + 1);
+        }
+      } else {
+        if (this.get('page') > 0) {
+          this.set('page', this.get('page') - 1);
+        }
       }
     },
     filterBy(param) {
