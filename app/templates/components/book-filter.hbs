@@ -2,24 +2,11 @@
   {{input value=currentSearch class="form-control category-search" type="text" placeholder="Search for Books by Title or Author"}}
 </div>
 <ul class="nav justify-content-center" id="book-filter">
-  <li class="nav-item">
-    <a class="nav-link category-link " href="#" {{action "filterParam" "drama"}}>Drama</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link category-link" href="#" onclick={{isActive}} {{action "filterParam" "romance"}}>Romance</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link category-link" href="#" {{action "filterParam" "fantasy"}}>Fantasy</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link category-link" href="#" {{action "filterParam" "adventure"}}>Adventure</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link category-link" href="#" {{action "filterParam" "mystery"}}>Mystery</a>
-  </li>
+  {{#each filterCategories as |categories|}}
+    <li class="nav-item">
+      <a class="nav-link category-link {{if categories.state "active"}}" href="#" {{action "filterParam" categories }}>{{categories.label}}</a>
+    </li>
+  {{/each}}
 </ul>
-
-
-
 
 {{yield results}}

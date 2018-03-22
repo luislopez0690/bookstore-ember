@@ -10,18 +10,21 @@
     border-radius: 100px 100px 100px 100px;
     -moz-border-radius: 100px 100px 100px 100px;
     -webkit-border-radius: 100px 100px 100px 100px;
-    color: black;
-    border: 1px solid #000000;
+    color: white;
     -moz-box-sizing: padding-box;
     box-sizing: padding-box;
     margin-right: 1rem;
+    background-color: #6c757d;
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
 
     &:hover {
-      color: green;
+      top: -5px;
     }
 
-    &:active {
-      color: green;
+    &.active {
+      top: -10px;
     }
   }
 }

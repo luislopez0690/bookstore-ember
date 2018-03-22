@@ -7,6 +7,7 @@ export default Controller.extend({
   lastPage: 0,
   filterValue: null,
   currentSearch: '',
+  categoryState: false,
 
 
   metaData: computed('model', function() {
@@ -26,33 +27,9 @@ export default Controller.extend({
         }
       }
     },
-    // filterBy(param) {
-    //   param = param.trim();
-    //   let filterParam = this.get('filterValue');
-    //   let currentPage = this.get('model.query.page');
-    //   let lastPage = this.get('lastPage');
-    //   if (currentPage != 0) {
-    //     this.set('lastPage', currentPage);
-    //   }
-    //   if (param !== '') {
-    //     if (filterParam === 'name') {
-    //       this.set('page', 0);
-    //       this.set('author', null);
-    //       this.set('name', param);
-    //     } else {
-    //       this.set('page', 0);
-    //       this.set('name', null);
-    //       this.set('author', param);
-    //     }
-    //   } else {
-    //     this.set('page', lastPage);
-    //     this.set('name', null);
-    //     this.set('author', null);
-    //   }
-    // },
     filterParam(filterProperty) {
-
-      this.set('filterValue', filterProperty);
+      this.set('categoryState', filterProperty.state);
+      this.set('filterValue', filterProperty.label);
     }
   }
 });

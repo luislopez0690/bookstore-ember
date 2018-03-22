@@ -1,6 +1,6 @@
 
 
-{{book-filter filter=(action 'filterBy') currentFilterValue=(mut currentFilterValue)  currentSearch=(mut currentSearch) filterValue=(mut filterValue) model=model filterParam="filterParam"}}
+{{book-filter filter=(action 'filterBy') currentFilterValue=(mut currentFilterValue)  currentSearch=(mut currentSearch) filterValue=(mut filterValue) categoryState=(mut categoryState) model=model filterParam="filterParam"}}
 <div class= "card-deck">
   {{#each model as |book|}}
   {{all-books book=book pickCurrentBook=(action 'setModalBook') }}

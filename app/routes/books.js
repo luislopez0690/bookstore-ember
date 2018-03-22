@@ -13,6 +13,9 @@ export default Route.extend({
     },
     filterValue: {
       refreshModel: true
+    },
+    categoryState: {
+      refreshModel: true
     }
   },
 
