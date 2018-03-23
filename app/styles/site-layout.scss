@@ -15,16 +15,36 @@
     width: auto;
 
     .main-page-book {
-      width: 20rem;
-      margin-bottom: 1.1rem;
+      width: 21.85rem;
+      margin-bottom: 1rem;
       border-color: black;
       cursor: pointer;
+
+      .main-page-book-body {
+        height: 19rem;
+      }
     }
 
-    .main-page-book-body {
-      height: 16rem;
+    .footer {
+      margin-top: 12px;
+
+      .page-item {
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+
+      .activePagination {
+        background-color: #6c757d !important;
+        border-color: #6c757d !important;
+      }
     }
   }
   @import './nav-bars/info-navbar';
   @import './nav-bars/top-navbar';
+  @import 'book-filter';
 }

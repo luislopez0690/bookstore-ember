@@ -1,0 +1,11 @@
+<div id="book-filter">
+  {{input value=currentSearch class="form-control category-search" type="text" placeholder="Search for Books by Title or Author"}}
+</div>
+<ul class="nav justify-content-center" id="book-filter">
+  {{#each filterCategories as |categories|}}
+    <li class="nav-item">
+      <a class="nav-link category-link {{if categories.state "active"}}" href="#" {{action "filterParam" categories categories.label }}>{{categories.label}}</a>
+    </li>
+  {{/each}}
+</ul>
+{{yield results}}
