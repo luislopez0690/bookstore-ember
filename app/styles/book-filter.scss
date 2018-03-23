@@ -24,7 +24,9 @@
     }
 
     &.active {
-      top: -10px;
+      top: -5px;
+      background-color: #3c3c3d;
+      font-weight: bold;
     }
   }
 }

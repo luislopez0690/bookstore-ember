@@ -7,7 +7,7 @@ export default Controller.extend({
   lastPage: 0,
   filterValue: null,
   currentSearch: '',
-  categoryState: false,
+  //categoryState: false,
 
 
   metaData: computed('model', function() {
@@ -28,8 +28,8 @@ export default Controller.extend({
       }
     },
     filterParam(filterProperty) {
-      this.set('categoryState', filterProperty.state);
-      this.set('filterValue', filterProperty.label);
+      //this.set('categoryState', filterProperty.state);
+      this.set('filterValue', filterProperty);
     }
   }
 });
