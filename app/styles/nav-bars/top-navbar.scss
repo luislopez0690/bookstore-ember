@@ -1,15 +1,4 @@
 #top-navbar {
   padding: 0.5rem;
   position: inherit;
-
-  a {
-    color: white;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-
-    &:hover {
-      color: gray;
-    }
-  }
 }
