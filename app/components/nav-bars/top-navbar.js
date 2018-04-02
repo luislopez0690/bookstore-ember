@@ -5,7 +5,5 @@ export default Component.extend({
   store: service(),
   tagName: 'nav',
   elementId: 'top-navbar',
-  classNames: ['navbar navbar-dark bg-dark navbar-expand-xl'],
-
-
+  classNames: ['navbar navbar-dark bg-dark navbar-expand-xl']
 });

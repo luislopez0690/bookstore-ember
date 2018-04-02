@@ -45,11 +45,11 @@
           {{QuantityDefault}}
         </button>
         <div class="dropdown-menu" aria-labelledby="Qty">
-          <a class="dropdown-item" href="#"{{action 'addQuantity' 1}}>1</a>
-          <a class="dropdown-item" href="#"{{action 'addQuantity' 2}}>2</a>
-          <a class="dropdown-item" href="#"{{action 'addQuantity' 3}}>3</a>
+          <a class="dropdown-item" href="#"{{action 'setQuantity' 1}}>1</a>
+          <a class="dropdown-item" href="#"{{action 'setQuantity' 2}}>2</a>
+          <a class="dropdown-item" href="#"{{action 'setQuantity' 3}}>3</a>
         </div>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"{{action 'addQuantity' 0}}>Cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"{{action 'setQuantity' 1}}>Cancel</button>
         {{#if user}}
           <button type="button" class="btn btn-light" {{action 'addToUserLibrary'}} data-dismiss="modal" >Buy</button>
         {{else}}

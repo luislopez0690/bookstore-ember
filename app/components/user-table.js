@@ -18,8 +18,7 @@ export default Component.extend({
   }),
   actions: {
     showBook: function(bookId) {
-      const isBookShowing = this.get('isBookShowing');
-      if (isBookShowing) {
+      if (this.get('isBookShowing')) {
         this.set('choosedBook', '');
         this.set('isBookShowing', false);
       } else {

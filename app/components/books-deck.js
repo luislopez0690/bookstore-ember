@@ -6,7 +6,7 @@ export default Component.extend({
   store: service(),
   filterValue: "Title",
   totalQuantity: 0,
-  QuantityDefault: '1',
+  QuantityDefault: 1,
   prevDisabled: computed('model.query.page', function() {
     return (this.get('model.query.page') - 1) < 0;
   }),
@@ -54,7 +54,7 @@ export default Component.extend({
       this.sendAction('filterParam', filterProperty);
 
     },
-    addQuantity(amount) {
+    setQuantity(amount) {
       this.set('QuantityDefault', amount);
       this.set('totalQuantity', amount);
     }
