@@ -1,12 +1,12 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import EmberObject, { computed } from '@ember/object';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
   filterValue: "Title",
   totalQuantity: 0,
-  QuantityDefault: 1,
+  quantityDefault: 1,
   prevDisabled: computed('model.query.page', function() {
     return (this.get('model.query.page') - 1) < 0;
   }),

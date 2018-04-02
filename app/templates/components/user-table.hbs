@@ -1,5 +1,5 @@
-{{nav-bars/info-navbar  title=""}}
-{{#if model.user.books}}
+
+{{#if model.books}}
 
 <table class="table table-hover" id="ordersTable">
   <thead>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each model.user.groupTransactions as |book index|}}
+    {{#each model.groupTransactions as |book index|}}
       <tr role="button"  class={{if  (is-equal choosedBook book.id) "table-active"}} data-toggle="collapse" data-target="#{{index}}" onclick={{action 'showBook' book.id}} aria-expanded="false" aria-controls="{{index}}">
         <td>{{book.name}}</td>
         <td>{{book.author}}</td>

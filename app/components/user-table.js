@@ -25,6 +25,7 @@ export default Component.extend({
         this.set('choosedBook', bookId);
         this.set('isBookShowing', true);
       }
+
     }
 
   }
