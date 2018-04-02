@@ -10,7 +10,6 @@ export default DS.Model.extend({
   price: DS.attr(),
   amount: DS.attr(),
   users: DS.hasMany('user'),
-  transactions: DS.hasMany('transactions')
-
+  transactions: DS.hasMany('transactions', { async: true }),
 
 });

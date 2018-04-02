@@ -1,22 +1,37 @@
-{{nav-bars/info-navbar  title="Past Orders"}}
+{{nav-bars/info-navbar  title=""}}
 {{#if model.user.books}}
-<table class="table table-bordered table-striped">
+
+<table class="table table-hover" id="ordersTable">
   <thead>
     <tr>
-      <th scope="col">Name</th>
+      <th scope="col">Title</th>
       <th scope="col">Author</th>
-      <th scope="col">Amount</th>
+      <th scope="col">Total Amount of Books</th>
     </tr>
   </thead>
   <tbody>
-    {{#each model.user.books as |book|}}
-      <tr>
+    {{#each model.user.groupTransactions as |book index|}}
+      <tr role="button"  class={{if  (is-equal choosedBook book.id) "table-active"}} data-toggle="collapse" data-target="#{{index}}" onclick={{action 'showBook' book.id}} aria-expanded="false" aria-controls="{{index}}">
         <td>{{book.name}}</td>
         <td>{{book.author}}</td>
-        <td>1</td>
-        </tr>
-    {{/each}}
+        <td>{{book.amount}}</td>
+      </tr>
+      <tr class="collapse" id="{{index}}">
+        <td colspan="3">
+          <ul>
+            {{#each model.user.orderTransactions as |transaction|}}
+              {{#if (is-equal book.id transaction.book_id)}}
+                <li>
+                  Purchased {{transaction.quantity}} book @ {{transaction.created_at}}
+                </li>
+              {{/if}}
+            {{/each}}
 
+          </ul>
+        </td>
+      </tr>
+
+    {{/each}}
   </tbody>
 </table>
 {{else}}

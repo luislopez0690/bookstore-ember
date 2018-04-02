@@ -1,0 +1,21 @@
+#ordersTable {
+  text-align: center;
+  table-layout: fixed;
+
+  tbody:hover {
+    cursor: pointer;
+  }
+
+  .detailedTransactions {
+    cursor: default;
+
+    tbody:hover {
+      cursor: default;
+    }
+  }
+
+  ul {
+    display: inline-block;
+    text-align: left;
+  }
+}

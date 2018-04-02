@@ -28,7 +28,6 @@ export default Component.extend({
   }),
   actions: {
     filterParam(filterCategory, filterLabel) {
-      console.log('Insde FilterParam action');
       if (this.get('filterValue') === filterLabel) {
         set(filterCategory, 'state', false);
         this.sendAction('filterParam', null);

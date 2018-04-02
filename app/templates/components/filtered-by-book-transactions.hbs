@@ -1,0 +1,16 @@
+
+{{#if areIdsEqual}}
+
+<table  class={{if showCorrectBook "collapse show" "collapse"}}>
+  <thead>
+    <th scope="col">Transaction Number</th>
+    <th scope="col">Amount of Books</th>
+  </thead>
+  <tbody>
+    <tr role="button" id="{{choosedBook}}" class={{if showCorrectBook "collapse show" "collapse"}} aria-labelledby="{{choosedBook}}" data-parent="#{{choosedBook}}" >
+      <td>{{currentTransaction.id}}</td>
+      <td>{{currentTransaction.quantity}}</td>
+    </tr>
+  </tbody>
+</table>
+{{/if}}
