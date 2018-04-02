@@ -41,15 +41,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{quantityDefault}}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="Qty">
-          <a class="dropdown-item" href="#"{{action 'setQuantity' 1}}>1</a>
-          <a class="dropdown-item" href="#"{{action 'setQuantity' 2}}>2</a>
-          <a class="dropdown-item" href="#"{{action 'setQuantity' 3}}>3</a>
-        </div>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"{{action 'setQuantity' 0}}>Cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         {{#if user}}
           <button type="button" class="btn btn-light" {{action 'addToUserLibrary'}} data-dismiss="modal" >Buy</button>
         {{else}}
