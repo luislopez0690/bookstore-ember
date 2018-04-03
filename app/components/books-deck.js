@@ -55,7 +55,7 @@ export default Component.extend({
 
     },
     setQuantity(amount) {
-      this.set('QuantityDefault', amount);
+      this.set('quantityDefault', amount);
       this.set('totalQuantity', amount);
     }
   }
