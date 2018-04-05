@@ -15,6 +15,14 @@
     width: auto;
     margin-top: 3rem;
 
+    .book-modal {
+      button {
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+
     .main-page-book {
       width: 21.85rem;
       margin-bottom: 1rem;

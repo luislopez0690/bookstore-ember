@@ -19,7 +19,7 @@
       <tr class="collapse" id="{{index}}">
         <td colspan="3">
           <ul>
-            {{#each model.user.orderTransactions as |transaction|}}
+            {{#each model.orderTransactions as |transaction|}}
               {{#if (is-equal book.id transaction.book_id)}}
                 <li>
                   Purchased {{transaction.quantity}} book @ {{transaction.created_at}}

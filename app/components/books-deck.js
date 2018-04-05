@@ -23,6 +23,18 @@ export default Component.extend({
       return "Author";
     }
   }),
+  isAvailableTheBook: computed('currentBook.available', function() {
+    const availableBooks = this.get('currentBook.available');
+    console.log('available books:', availableBooks);
+    if (availableBooks === 0) {
+      console.log('enters the dragon');
+      this.set('quantityDefault', 0);
+      return true;
+    } else {
+      this.set('quantityDefault', 1);
+      return false;
+    }
+  }),
 
   actions: {
     setModalBook(currentBook) {
@@ -39,6 +51,7 @@ export default Component.extend({
       const totalQuantity = this.get('totalQuantity');
       if (totalQuantity !== 0) {
         currentTransaction.set('quantity', totalQuantity);
+        this.set('totalQuantity', 1);
       }
       this.sendAction('addToUserLibrary', currentTransaction);
     },
