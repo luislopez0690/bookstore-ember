@@ -9,7 +9,7 @@
   </div>
   <div class="card-footer text-muted">
   available:
-  <span class="badge badge-primary badge-pill">{{book.available}}</span>
+  <span class="badge {{if (is-equal book.available 0) "badge-danger" "badge-primary"}} badge-pill">{{book.available}}</span>
   total:
   <span class="badge badge-primary badge-pill">{{book.amount}}</span>
 </div>
