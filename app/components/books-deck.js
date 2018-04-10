@@ -1,11 +1,12 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import EmberObject, { computed } from '@ember/object';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
   filterValue: "Title",
-
+  totalQuantity: 0,
+  quantityDefault: 1,
   prevDisabled: computed('model.query.page', function() {
     return (this.get('model.query.page') - 1) < 0;
   }),
@@ -22,18 +23,36 @@ export default Component.extend({
       return "Author";
     }
   }),
+  isAvailableTheBook: computed('currentBook.available', function() {
+    const availableBooks = this.get('currentBook.available');
+    console.log('available books:', availableBooks);
+    if (availableBooks === 0) {
+      console.log('enters the dragon');
+      this.set('quantityDefault', 0);
+      return true;
+    } else {
+      this.set('quantityDefault', 1);
+      return false;
+    }
+  }),
 
   actions: {
     setModalBook(currentBook) {
       this.set('currentBook', currentBook);
       const transaction = this.get('store').createRecord('transaction', {
         user: this.get('user'),
-        book: currentBook
+        book: currentBook,
+        quantity: 1
       });
       this.set('transaction', transaction);
     },
     addToUserLibrary() {
       const currentTransaction = this.get('transaction');
+      const totalQuantity = this.get('totalQuantity');
+      if (totalQuantity !== 0) {
+        currentTransaction.set('quantity', totalQuantity);
+        this.set('totalQuantity', 1);
+      }
       this.sendAction('addToUserLibrary', currentTransaction);
     },
     changePage(action) {
@@ -47,6 +66,10 @@ export default Component.extend({
     filterParam(filterProperty) {
       this.sendAction('filterParam', filterProperty);
 
+    },
+    setQuantity(amount) {
+      this.set('quantityDefault', amount);
+      this.set('totalQuantity', amount);
     }
   }
 });

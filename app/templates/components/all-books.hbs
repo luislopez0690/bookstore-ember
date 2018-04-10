@@ -7,4 +7,10 @@
     <p class="card-text">{{book.author}}</p>
     <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna .</p>
   </div>
+  <div class="card-footer text-muted">
+  available:
+  <span class="badge {{if (is-equal book.available 0) "badge-danger" "badge-primary"}} badge-pill">{{book.available}}</span>
+  total:
+  <span class="badge badge-primary badge-pill">{{book.amount}}</span>
+</div>
 </div>

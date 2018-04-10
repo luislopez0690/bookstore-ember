@@ -13,6 +13,15 @@
 
   #main-canvas {
     width: auto;
+    margin-top: 3rem;
+
+    .book-modal {
+      button {
+        &:disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
 
     .main-page-book {
       width: 21.85rem;
@@ -44,7 +53,7 @@
       }
     }
   }
-  @import './nav-bars/info-navbar';
   @import './nav-bars/top-navbar';
   @import 'book-filter';
+  @import 'user-table.scss';
 }

@@ -9,8 +9,8 @@ export default DS.Model.extend({
   image: DS.attr(),
   price: DS.attr(),
   amount: DS.attr(),
+  available: DS.attr(),
   users: DS.hasMany('user'),
-  transactions: DS.hasMany('transactions')
-
+  transactions: DS.hasMany('transactions'),
 
 });
